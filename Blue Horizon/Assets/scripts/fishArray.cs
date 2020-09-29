@@ -86,8 +86,6 @@ public static fish[] NormalFish= new fish[21];
             NormalFish[i].FishIsOwnedString = isCaught[i];
             NormalFish[i].fishSprite = Resources.Load<Sprite>("Fish_Images/Normal/" + NormalFish[i].fishSpriteString);
             NormalFish[i].FishIsOwned = false;
-            
-
 
             TundraFish[i] = new fish();
             TundraFish[i].fishName = name[i + 21];
