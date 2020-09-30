@@ -14,8 +14,18 @@ public class PlayerData
     public float permanentUpgradeSpeed;
     public float permanentUpgradeCatchRate;
     public int fishOwned;
+    public  float TimeSpentInNormal;
+    public  float TimeSpentInTwilight;
+    public  float TimeSpentInTundra;
+    public  float TimeSpentInSwamp;
+    public  float TimeSpentInMountain;
+    public  float TimeSpentInShallow;
+    public  float TimeSpentInSunrise;
 
-    
+
+
+
+
 
     public PlayerData ()
     {
@@ -45,5 +55,13 @@ public class PlayerData
 
         permanentUpgradeCatchRate = PermanentUpgrades.permanentCatchBoost;
         permanentUpgradeSpeed = PermanentUpgrades.permanentSpeedBoost;
+
+        TimeSpentInNormal   = PlayerStats.TimeSpentInNormal;
+        TimeSpentInTwilight = PlayerStats.TimeSpentInTwilight;
+        TimeSpentInTundra   = PlayerStats.TimeSpentInTundra;
+        TimeSpentInSwamp    = PlayerStats.TimeSpentInSwamp;
+        TimeSpentInMountain = PlayerStats.TimeSpentInMountain;
+        TimeSpentInShallow  = PlayerStats.TimeSpentInShallow;
+        TimeSpentInSunrise   = PlayerStats.TimeSpentInSunrise;
     }
 }

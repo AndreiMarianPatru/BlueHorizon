@@ -23,4 +23,12 @@ public class sunrisecol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInSunrise += 1 * Time.deltaTime;
+        }
+
+    }
 }

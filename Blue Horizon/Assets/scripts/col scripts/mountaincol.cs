@@ -23,4 +23,14 @@ public class mountaincol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInMountain += 1 * Time.deltaTime;
+        }
+
+    }
+
+
 }

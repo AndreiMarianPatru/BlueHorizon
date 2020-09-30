@@ -23,4 +23,12 @@ public class tundracol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInTundra += 1 * Time.deltaTime;
+        }
+
+    }
 }

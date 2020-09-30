@@ -22,4 +22,14 @@ public class shallowcol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInShallow += 1 * Time.deltaTime;
+        }
+
+    }
+
+
 }

@@ -23,4 +23,12 @@ public class swampcol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInSwamp += 1 * Time.deltaTime;
+        }
+
+    }
 }

@@ -40,11 +40,17 @@ public class Save_Load_Buttons : MonoBehaviour
 
         PermanentUpgrades.permanentCatchBoost = data.permanentUpgradeCatchRate;
         PermanentUpgrades.permanentSpeedBoost = data.permanentUpgradeSpeed;
+        
+        PlayerStats.TimeSpentInNormal = data.TimeSpentInNormal;
+        PlayerStats.TimeSpentInSunrise = data.TimeSpentInSunrise;
+        PlayerStats.TimeSpentInMountain = data.TimeSpentInMountain;
+        PlayerStats.TimeSpentInShallow = data.TimeSpentInShallow;
+        PlayerStats.TimeSpentInSwamp = data.TimeSpentInSwamp;
+        PlayerStats.TimeSpentInTundra = data.TimeSpentInTundra;
+        PlayerStats.TimeSpentInTwilight = data.TimeSpentInTwilight;
 
-      
+
+
     }
-    public void sadasd(int i)
-    {
-        Debug.Log("sdsad");
-    }
+  
 }

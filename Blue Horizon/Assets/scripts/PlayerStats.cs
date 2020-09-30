@@ -6,9 +6,17 @@ public class PlayerStats : MonoBehaviour
 {
     public static Vector3 position;
     public static Vector3 rotation;
-  
-   
-    
+
+    public static float TimeSpentInNormal;
+    public static float TimeSpentInTwilight;
+    public static float TimeSpentInTundra;
+    public static float TimeSpentInSwamp;
+    public static float TimeSpentInMountain;
+    public static float TimeSpentInShallow;
+    public static float TimeSpentInSunrise;
+
+
+
     public static string biome;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +30,7 @@ public class PlayerStats : MonoBehaviour
 
         position = gameObject.transform.position;
         rotation = gameObject.transform.rotation.eulerAngles;
+        Debug.Log(TimeSpentInNormal);
     }
     public void setPositionandRotation()
     {

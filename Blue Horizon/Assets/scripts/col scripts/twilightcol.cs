@@ -24,4 +24,12 @@ public class twilightcol : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerStats.TimeSpentInTwilight += 1 * Time.deltaTime;
+        }
+
+    }
 }
