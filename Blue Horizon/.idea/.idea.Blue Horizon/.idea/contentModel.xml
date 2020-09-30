@@ -37,6 +37,7 @@
         <e p="Scripts" t="Include">
           <e p="alphabutton.cs" t="Include" />
           <e p="AlphaThreshold.cs" t="Include" />
+          <e p="AnalyticsExport.cs" t="Include" />
           <e p="animatedSand.cs" t="Include" />
           <e p="barPercentage.cs" t="Include" />
           <e p="boatMovement.cs" t="Include" />

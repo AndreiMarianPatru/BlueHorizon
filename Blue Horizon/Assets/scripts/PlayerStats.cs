@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,5 +39,8 @@ public class PlayerStats : MonoBehaviour
         gameObject.transform.rotation.eulerAngles.Set(rotation.x, rotation.y, rotation.z);
     }
 
-  
+    public void OnApplicationQuit()
+    {
+        AnalyticsExport.ExportData();
+    }
 }
