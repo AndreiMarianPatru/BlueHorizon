@@ -44,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/scripts/alphabutton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/fishArray.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/animatedSand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/scripts/AnalyticsExport.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/SoundManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/checkTouch.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,6 +58,8 @@
         <option value="$PROJECT_DIR$/Assets/scripts/alphabutton.cs" />
         <option value="$PROJECT_DIR$/Assets/scripts/barPercentage.cs" />
         <option value="$PROJECT_DIR$/Assets/scripts/fishArray.cs" />
+        <option value="$PROJECT_DIR$/Assets/scripts/AnalyticsExport.cs" />
+        <option value="$PROJECT_DIR$/Assets/scripts/PlayerStats.cs" />
       </list>
     </option>
   </component>
@@ -98,6 +101,7 @@
       <updated>1601329282331</updated>
       <workItem from="1601329314482" duration="3124000" />
       <workItem from="1601370974683" duration="1224000" />
+      <workItem from="1601498883019" duration="2653000" />
     </task>
     <servers />
   </component>
@@ -117,5 +121,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601500821945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601500821945" />
   </component>
 </project>

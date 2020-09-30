@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -31,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 
         position = gameObject.transform.position;
         rotation = gameObject.transform.rotation.eulerAngles;
-        Debug.Log(TimeSpentInNormal);
+        Debug.Log(TimeSpentInNormal.ToString());
     }
     public void setPositionandRotation()
     {
@@ -41,6 +42,6 @@ public class PlayerStats : MonoBehaviour
 
     public void OnApplicationQuit()
     {
-        AnalyticsExport.ExportData();
+        Debug.Log(AnalyticsExport.ExportData());
     }
 }
