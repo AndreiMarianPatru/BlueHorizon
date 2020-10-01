@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 
         position = gameObject.transform.position;
         rotation = gameObject.transform.rotation.eulerAngles;
-        Debug.Log(TimeSpentInNormal.ToString());
+        //Debug.Log(TimeSpentInNormal.ToString());
     }
     public void setPositionandRotation()
     {

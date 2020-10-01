@@ -127,6 +127,9 @@ public class spawndots : MonoBehaviour
         {
             result = (float) GameObject.Find("Check").GetComponent<checkTouch>().score / (float) numberOfbeatscopy;
             float finalres = GameObject.Find("player").GetComponent<PermanentUpgrades>().ReturnPercentage(result);
+
+            AnalyticsExport.SendToExport(finalres.ToString());
+
             StartCoroutine(GameObject.Find("Fish Objects").GetComponent<fishArray>().getFishEnumerator(finalres));
             StartCoroutine(SimnpleDelay()); // wait a bit more after the last beat is gone 
         }

@@ -19,7 +19,7 @@ public static class AnalyticsExport
     {
         exportList.Add(exportString);
 
-        Debug.Log(exportList.Count.ToString());
+        //Debug.Log(exportList.Count.ToString());
     }
 
     /// <summary>
