@@ -24,6 +24,7 @@ public class spawnFS : MonoBehaviour
     public int numberofFS;
 
     private float timeBetweenFishing = 0.0f;
+    private PlayerStats playerStats;
 
 
     // Start is called before the first frame update
@@ -48,6 +49,8 @@ public class spawnFS : MonoBehaviour
         }
         fishingui.SetActive(false);
 
+        playerStats = player.GetComponent<PlayerStats>();
+
     }
 
     // Update is called once per frame
@@ -62,10 +65,9 @@ public class spawnFS : MonoBehaviour
         fishingui.GetComponent<spawndots>().numberOfbeats = 10;
         fishingui.GetComponent<spawndots>().numberOfbeatscopy = 10;
 
-        string exportString = "";
-        exportString += "Time between fishing spot: " + timeBetweenFishing.ToString();
-        exportString += " Biome: " + player.GetComponent<PlayerStats>().getBiome();
-        
+        string exportString = string.Concat("Time between fishing spot: ", timeBetweenFishing.ToString(), " Biome: ",
+            playerStats.getBiome());
+
         Debug.Log(exportString);
         
         AnalyticsExport.SendToExport(exportString);
