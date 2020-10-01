@@ -44,4 +44,9 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log(AnalyticsExport.ExportData());
     }
+
+    public String getBiome()
+    {
+        return biome;
+    }
 }

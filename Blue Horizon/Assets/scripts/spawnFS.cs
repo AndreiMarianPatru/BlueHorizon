@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class spawnFS : MonoBehaviour
@@ -21,6 +22,8 @@ public class spawnFS : MonoBehaviour
 
 
     public int numberofFS;
+
+    private float timeBetweenFishing = 0.0f;
 
 
     // Start is called before the first frame update
@@ -50,9 +53,7 @@ public class spawnFS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-
-        
+        timeBetweenFishing += Time.deltaTime;
     }
     public void EnableFishingUI()
     {
@@ -61,10 +62,22 @@ public class spawnFS : MonoBehaviour
         fishingui.GetComponent<spawndots>().numberOfbeats = 10;
         fishingui.GetComponent<spawndots>().numberOfbeatscopy = 10;
 
+        string exportString = "";
+        exportString += "Time between fishing spot: " + timeBetweenFishing.ToString();
+        exportString += " Biome: " + player.GetComponent<PlayerStats>().getBiome();
+        
+        Debug.Log(exportString);
+        
+        AnalyticsExport.SendToExport(exportString);
     }
     public void DisableFishingUI()
     {
         fishingui.SetActive(false);
+    }
+
+    public void EndFishing()
+    {
+        timeBetweenFishing = 0.0f;
     }
 
     private List<Vector3> GenerateRandVect(int number)

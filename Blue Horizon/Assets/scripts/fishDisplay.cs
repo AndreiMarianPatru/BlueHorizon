@@ -81,6 +81,7 @@ public class fishDisplay : MonoBehaviour
         FishCanvas.SetActive(false);
         PlayerUI.SetActive(true);
         player.GetComponent<boatMovement>().enabled = true;
+        GameObject.Find("game manager").GetComponent<spawnFS>().EndFishing();
 
         //   Time.timeScale = 1f;
     }
