@@ -31,7 +31,7 @@ public class SessionTimer : MonoBehaviour
     private void Update()
     {
         Timer += Time.deltaTime;
-        Debug.Log("Session length: " + ConvertSecondsToTime(Timer));
+        //Debug.Log("Session length: " + ConvertSecondsToTime(Timer));
     }
 
     //Export the session length to the analytics
