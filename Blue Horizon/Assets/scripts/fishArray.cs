@@ -15,13 +15,15 @@ public class fish
     public string fishSpriteString;
     public bool FishIsOwned;
     public string FishIsOwnedString;
+
+    
 }
 
 public class fishArray : MonoBehaviour
 {
-public Sprite spriteee;
+    public Sprite spriteee;
 
-public static fish[] NormalFish= new fish[21];
+    public static fish[] NormalFish = new fish[21];
     public static fish[] TundraFish = new fish[21];
     public static fish[] MountainousFish = new fish[21];
     public static fish[] SwampFish = new fish[21];
@@ -29,11 +31,11 @@ public static fish[] NormalFish= new fish[21];
     public static fish[] TwilightFish = new fish[21];
     public static fish[] SunsetFish = new fish[21];
 
-    public  List<string> name;
-    public  List<string> biome;
-    public  List<string> rarity;
-    public  List<string> image;
-    public  List<string> isCaught;
+    public List<string> name;
+    public List<string> biome;
+    public List<string> rarity;
+    public List<string> image;
+    public List<string> isCaught;
 
 
     private int rarityRange1;
@@ -45,20 +47,22 @@ public static fish[] NormalFish= new fish[21];
     public fish RewardFish;
     public GameObject player;
     public GameObject gamemanager;
+
+    string FishCaughtString = "";
     void Start()
     {
         RewardFish = null;
-       
-      
+
+
         TextAsset fishfile = Resources.Load<TextAsset>("FishIndex");
         if (fishfile)
         {
             string[] data = fishfile.text.Split(new char[] { '\n' });
             //Debug.Log("data len"+data.Length);
-            
-            for (int i = 1; i < data.Length-1; i++)
+
+            for (int i = 1; i < data.Length - 1; i++)
             {
-                string[] row=data[i].Split(new char[] { ',' });
+                string[] row = data[i].Split(new char[] { ',' });
                 // Debug.Log(row[0]);
                 //Debug.Log(i+" "+row[1]);
                 name.Add(row[0]);
@@ -67,15 +71,15 @@ public static fish[] NormalFish= new fish[21];
                 image.Add(row[3]);
                 isCaught.Add(row[4]);
             }
-           
+
 
         }
         else
         {
             Debug.Log("Can't read FishIndex file");
-        } 
+        }
 
-        
+
         for (int i = 0; i < 21; i++)
         {
             NormalFish[i] = new fish();
@@ -146,11 +150,11 @@ public static fish[] NormalFish= new fish[21];
     }
     public static bool[] SetAndGetFishBools()
     {
-        bool[] fishBools =new bool[147];
-        int j = 0;       
+        bool[] fishBools = new bool[147];
+        int j = 0;
         for (int i = 0; i < NormalFish.Length; i++)
         {
-            fishBools[j]=NormalFish[i].FishIsOwned;
+            fishBools[j] = NormalFish[i].FishIsOwned;
             j++;
         }
         for (int i = 0; i < TundraFish.Length; i++)
@@ -184,7 +188,7 @@ public static fish[] NormalFish= new fish[21];
             j++;
         }
         return fishBools;
-}
+    }
 
     public static void LoadFishBool(bool[] list)
     {
@@ -192,12 +196,12 @@ public static fish[] NormalFish= new fish[21];
         for (int i = 0; i < NormalFish.Length; i++)
         {
             NormalFish[i].FishIsOwned = list[j];
-            TundraFish[i].FishIsOwned = list[j+20];
-            MountainousFish[i].FishIsOwned = list[j+41];
-            SwampFish[i].FishIsOwned = list[j+62];
-            ShallowFish[i].FishIsOwned = list[j+83];
-            TwilightFish[i].FishIsOwned = list[j+104];
-            SunsetFish[i].FishIsOwned = list[j+125];
+            TundraFish[i].FishIsOwned = list[j + 20];
+            MountainousFish[i].FishIsOwned = list[j + 41];
+            SwampFish[i].FishIsOwned = list[j + 62];
+            ShallowFish[i].FishIsOwned = list[j + 83];
+            TwilightFish[i].FishIsOwned = list[j + 104];
+            SunsetFish[i].FishIsOwned = list[j + 125];
             j++;
         }
 
@@ -212,62 +216,62 @@ public static fish[] NormalFish= new fish[21];
         }
     }
 
-    public void GetFish(string biome) { 
+    public void GetFish(string biome) {
         //if (biome == null) {
         //    biome = "Normal"; // Error stopper.
         //}
         rarityOfFishRanges(biome); //Gets the percentage values for the rarity chance of each fish rarity for each biome.
-        RewardFish= pickFish(pickBiome(biome));
-        Debug.Log("you got the fish "+RewardFish.fishName+" from biome "+RewardFish.fishBiome);// First, it gets the array that matches the inputted biome, then uses that array to select a fish based on the percentage values from rarityOfFishRanges.
+        RewardFish = pickFish(pickBiome(biome));
+        Debug.Log("you got the fish " + RewardFish.fishName + " from biome " + RewardFish.fishBiome);// First, it gets the array that matches the inputted biome, then uses that array to select a fish based on the percentage values from rarityOfFishRanges.
         StartCoroutine(GameObject.Find("Fish_Display").GetComponent<fishDisplay>().FishDisplayEnumerator(RewardFish));
     }
 
 
     public fish[] pickBiome(string biome) {
-            
-            fish[] returnbiome= null;
-            switch (biome)
-             {
+
+        fish[] returnbiome = null;
+        switch (biome)
+        {
             case "Normal":
                 returnbiome = NormalFish;
                 break;
             case "Tundra":
                 returnbiome = TundraFish;
                 break;
-               
+
             case "Mountainous":
                 returnbiome = MountainousFish;
                 break;
-                
+
             case "Swamp":
                 returnbiome = SwampFish;
                 break;
-             
+
             case "Shallow":
                 returnbiome = ShallowFish;
                 break;
-               
+
             case "Twilight":
                 returnbiome = TwilightFish;
                 break;
-                
+
             case "Sunset":
-                returnbiome = SunsetFish; 
+                returnbiome = SunsetFish;
                 break;
 
-             }
+        }
 
-            if (returnbiome != null)
-            {
-              
-                return returnbiome;
+        if (returnbiome != null)
+        {
 
-            }
-            else
-            {
-               
-                return null;
-            }
+            return returnbiome;
+
+        }
+        else
+        {
+
+            return null;
+        }
     }
 
 
@@ -330,10 +334,10 @@ public static fish[] NormalFish= new fish[21];
     {
         yield return new WaitForSeconds(1f);
         float temp = Random.Range(0.0f, 1.0f);
-      
+
         if (value > temp)
         {
-         
+
             GetFish(PlayerStats.biome);
             Debug.Log(RewardFish.fishName);
             RewardFish.FishIsOwned = true;
@@ -355,16 +359,17 @@ public static fish[] NormalFish= new fish[21];
                     totalFishOwned++;
                 if (SunsetFish[i].FishIsOwned == true)
                     totalFishOwned++;
-            
+
             }
 
             if (totalFishOwned % 10 == 0)
             {
                 gamemanager.GetComponent<wallRemover>().UnlockBiome();
             }
-            Debug.Log("total fish owned: "+totalFishOwned);
+            Debug.Log("total fish owned: " + totalFishOwned);
 
-
+            FishCaughtString = "The amount of fish the player has caught this session is : " + totalFishOwned;
+            Debug.Log(FishCaughtString);
 
 
             Debug.Log("Back to fishing");
@@ -375,18 +380,23 @@ public static fish[] NormalFish= new fish[21];
 
             Debug.Log("no fish this time");
             player.GetComponent<boatMovement>().enabled = true;
-            
+
 
 
 
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        AnalyticsExport.SendToExport(FishCaughtString);
+    }
+
 
     public fish pickFish(fish[] biomearray) {
         int range1 = 0;
         int range2 = 0;
-      
+
         int rarityOfFish = Random.Range(0, 100); //0 to 100, 100 Exc.
         if (rarityOfFish >= 0 && rarityOfFish <= rarityRange1 - 1)
         {
@@ -428,10 +438,11 @@ public static fish[] NormalFish= new fish[21];
         } else if (specificFish > 100) { // Error Stopper.
             specificFish = 100;
         }
-       
+
         return biomearray[specificFish];
     }
 
-
+    //section added to get the fish caught in session
+   
 
 }
