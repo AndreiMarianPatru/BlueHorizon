@@ -8,6 +8,8 @@ public class wallRemover : MonoBehaviour
     public GameObject[] biomes;
     public static  List<int> unlockedBiomes;
     public List<int> lockedBiomes;
+    public float current_time;
+
 
     
     // Start is called before the first frame update
@@ -32,15 +34,19 @@ public class wallRemover : MonoBehaviour
         //unlockedBiomes.Add(5);
         //unlockedBiomes.Add(6);
 
-
+        current_time = Time.time;
     }
 
     public void UnlockBiome()
     {
+        string namebiom = lockedBiomes[0].ToString();
         unlockedBiomes.Add(lockedBiomes[0]);
         lockedBiomes.RemoveAt(0);
-        StartCoroutine(DestroyWallsBetweenAll(unlockedBiomes));
         
+        StartCoroutine(DestroyWallsBetweenAll(unlockedBiomes));
+        float time = Time.time - current_time;
+        AnalyticsExport.SendToExport("Time to unlock "+namebiom+time.ToString());
+        current_time = Time.time;
     }
 
     // Update is called once per frame
@@ -79,4 +85,5 @@ public class wallRemover : MonoBehaviour
             }
         yield return null;
     }
+    
 }

@@ -1,1 +1,9 @@
+<<<<<<< Updated upstream
 m_EditorVersion: 2018.4.27f1
+=======
+<<<<<<< HEAD
+m_EditorVersion: 2018.4.23f1
+=======
+m_EditorVersion: 2018.4.27f1
+>>>>>>> 47e5bc0e7ebb15d7e91e57310b42c6c2c5e398d0
+>>>>>>> Stashed changes
