@@ -387,7 +387,7 @@ public class fishArray : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    public void QuitExport()
     {
         AnalyticsExport.SendToExport(FishCaughtString);
     }

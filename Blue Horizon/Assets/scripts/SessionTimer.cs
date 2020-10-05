@@ -35,7 +35,7 @@ public class SessionTimer : MonoBehaviour
     }
 
     //Export the session length to the analytics
-    private void OnApplicationQuit()
+    public void QuitExport()
     {
         AnalyticsExport.SendToExport("Session length: " + ConvertSecondsToTime(Timer));
     }

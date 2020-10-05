@@ -17,8 +17,6 @@ public class PlayerStats : MonoBehaviour
     public static float TimeSpentInShallow;
     public static float TimeSpentInSunrise;
 
-
-
     public static string biome;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +38,7 @@ public class PlayerStats : MonoBehaviour
         gameObject.transform.rotation.eulerAngles.Set(rotation.x, rotation.y, rotation.z);
     }
 
-    public void OnApplicationQuit()
+    public void QuitExport()
     {
         AnalyticsExport.SendToExport("Time spent in Normal biome "+TimeSpentInNormal.ToString()+" s");
         AnalyticsExport.SendToExport("Time spent in Mountain biome "+TimeSpentInMountain.ToString() + " s");
