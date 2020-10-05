@@ -42,6 +42,13 @@ public class PlayerStats : MonoBehaviour
 
     public void OnApplicationQuit()
     {
+        AnalyticsExport.SendToExport("Time spent in Normal biome "+TimeSpentInNormal.ToString()+" s");
+        AnalyticsExport.SendToExport("Time spent in Mountain biome "+TimeSpentInMountain.ToString() + " s");
+        AnalyticsExport.SendToExport("Time spent in Shallow biome "+TimeSpentInShallow.ToString() + " s");
+        AnalyticsExport.SendToExport("Time spent in Sunrise biome "+TimeSpentInSunrise.ToString() + " s");
+        AnalyticsExport.SendToExport("Time spent in Swamp biome "+TimeSpentInSwamp.ToString() + " s");
+        AnalyticsExport.SendToExport("Time spent in Tundra biome "+TimeSpentInTundra.ToString() + " s");
+        AnalyticsExport.SendToExport("Time spent in Twilight biome "+TimeSpentInTwilight.ToString() + " s");
         Debug.Log(AnalyticsExport.ExportData());
     }
 
