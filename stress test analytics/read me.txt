@@ -1,0 +1,1 @@
+player.savegame is my latest savegame of the file. place it in C:\Users\...\AppData\LocalLow\DefaultCompany\Blue Horizon

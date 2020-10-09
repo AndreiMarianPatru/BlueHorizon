@@ -32,12 +32,30 @@ public class Save_Load_Buttons : MonoBehaviour
         wallRemover.unlockedBiomes.Clear();
         for (int i = 0; i < data.unlockedBiomes.Length; i++)
         {
+        Debug.Log(data.unlockedBiomes[i]);
+        }
+        int temp =0;
+        for (int i = 0; i < data.unlockedBiomes.Length; i++)
+        {
+        
+       
             if(data.unlockedBiomes[i]==0)
-                break;
+            {
+      
+                  temp++;
+                if(temp==2)
+                {
+                    break;
+                }
+
+            }
+                
             wallRemover.unlockedBiomes.Add(data.unlockedBiomes[i]);
+          //  Debug.Log("1www");
            
         }
-
+        GameObject.Find("game manager").GetComponent<wallRemover>().UnlockBiome();
+       // Debug.Log("1wwssssw");
         PermanentUpgrades.permanentCatchBoost = data.permanentUpgradeCatchRate;
         PermanentUpgrades.permanentSpeedBoost = data.permanentUpgradeSpeed;
         
