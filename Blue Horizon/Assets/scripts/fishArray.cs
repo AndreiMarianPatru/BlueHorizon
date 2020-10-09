@@ -362,7 +362,7 @@ public class fishArray : MonoBehaviour
 
             }
 
-            if (totalFishOwned % 10 == 0)
+            if (totalFishOwned % 3 == 0)
             {
                 gamemanager.GetComponent<wallRemover>().UnlockBiome();
             }
