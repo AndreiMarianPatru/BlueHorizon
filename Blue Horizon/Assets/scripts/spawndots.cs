@@ -128,21 +128,22 @@ public class spawndots : MonoBehaviour
             result = (float) GameObject.Find("Check").GetComponent<checkTouch>().score / (float) numberOfbeatscopy;
             float finalres = GameObject.Find("player").GetComponent<PermanentUpgrades>().ReturnPercentage(result);
 
-            AnalyticsExport.SendToExport(finalres.ToString());
+            
 
             StartCoroutine(GameObject.Find("Fish Objects").GetComponent<fishArray>().getFishEnumerator(finalres));
-            StartCoroutine(SimnpleDelay()); // wait a bit more after the last beat is gone 
+            StartCoroutine(SimnpleDelay(finalres)); // wait a bit more after the last beat is gone 
         }
         check.transform.localScale = new Vector3(checkScale, checkScale, checkScale);
     }
 
-    IEnumerator SimnpleDelay()
+    IEnumerator SimnpleDelay(float finalres)
     {
         yield return new WaitForSeconds(1f);
         slider.value = 0;
         gameObject.SetActive(false);
         Player_UI.SetActive(true);
         //gameObject.GetComponent<spawndots>().enabled = false;
+        AnalyticsExport.SendToExport(finalres.ToString());
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

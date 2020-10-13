@@ -89,10 +89,12 @@
           <e p="PermanentUpgrades.cs" t="Include" />
           <e p="PlayerData.cs" t="Include" />
           <e p="PlayerStats.cs" t="Include" />
+          <e p="QuitGameManager.cs" t="Include" />
           <e p="ReadFishData.cs" t="Include" />
           <e p="Save_Load_Buttons.cs" t="Include" />
           <e p="saveMenuScript.cs" t="Include" />
           <e p="SaveSystem.cs" t="Include" />
+          <e p="SessionTimer.cs" t="Include" />
           <e p="SoundManagerScript.cs" t="Include" />
           <e p="spawndots.cs" t="Include" />
           <e p="spawnFS.cs" t="Include" />
