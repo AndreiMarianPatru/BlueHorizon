@@ -93,8 +93,11 @@ public class spawndots : MonoBehaviour
         if (!GameObject.Find("Slider")) //if there is no check we create one
         {
             slider = Instantiate(sliderprefab, whereToSpawnSlider, Quaternion.identity, transform);
+            RectTransform RT = slider.GetComponent<RectTransform>();
+            RT.offsetMin = Vector2.zero;
+            RT.offsetMax = Vector2.zero;
             slider.name = "Slider";
-            slider.GetComponent<RectTransform>().localScale = new Vector3(18, 13, 0);
+            //slider.GetComponent<RectTransform>().localScale = new Vector3(18, 13, 0);
             // slider.GetComponent<RectTransform>().position.= new Vector3(0, 500, 0);
             slider.value = 0;
         }
@@ -116,7 +119,7 @@ public class spawndots : MonoBehaviour
             time += spawnSpeed;
             GameObject bt = Instantiate(beatPrefab, whereToSpawn, Quaternion.identity, transform);
             bt.GetComponent<moveBeats>().speed = beatSpeed;
-            bt.transform.localScale = new Vector3(beatScale, beatScale, beatScale);
+            //bt.transform.localScale = new Vector3(beatScale, beatScale, beatScale);
             bt.name = "beat";
             numberOfbeats--; //each time when a beat is spawned this will be decreased by 1, when it reaches 0 the rythm game ends
         }
@@ -126,14 +129,12 @@ public class spawndots : MonoBehaviour
         if (numberOfbeats == 0 && GameObject.Find("beat") == null)
         {
             result = (float) GameObject.Find("Check").GetComponent<checkTouch>().score / (float) numberOfbeatscopy;
-            float finalres = GameObject.Find("player").GetComponent<PermanentUpgrades>().ReturnPercentage(result);
-
-            
+            float finalres = GameObject.Find("player").GetComponent<PermanentUpgrades>().ReturnPercentage(result);            
 
             StartCoroutine(GameObject.Find("Fish Objects").GetComponent<fishArray>().getFishEnumerator(finalres));
             StartCoroutine(SimnpleDelay(finalres)); // wait a bit more after the last beat is gone 
         }
-        check.transform.localScale = new Vector3(checkScale, checkScale, checkScale);
+        //check.transform.localScale = new Vector3(checkScale, checkScale, checkScale);
     }
 
     IEnumerator SimnpleDelay(float finalres)
