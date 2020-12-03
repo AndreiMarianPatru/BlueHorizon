@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class fishing : MonoBehaviour
@@ -33,16 +34,28 @@ public class fishing : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+           
+         
+
             player.GetComponent<boatMovement>().enabled = false;
+      
+            
 
             if (ESystem.GetComponent<tutorialScript>().hasBeenDone1)
             {
                 ESystem.GetComponent<tutorialScript>().firstFishingSpot = true;
             }
             GameObject.Find("game manager").GetComponent<spawnFS>().EnableFishingUI();
-            GameObject newfishingspot=Instantiate(fishingspot, new Vector3(Random.Range(10, 100), 0, Random.Range(10, 100)), Quaternion.identity);
+            Vector2 temp;
+            temp.x = Random.Range(10, 100);
+            temp.y = Random.Range(10, 100);
+            GameObject newfishingspot=Instantiate(fishingspot, new Vector3(temp.x, 0, temp.y), Quaternion.identity);
+            newfishingspot.transform.localScale=new Vector3(5,100,5);
             //Debug.Log("the fishing has ended");
+            Debug.Log("new coords "+temp);
+           
             Destroy(gameObject);
+
         }
         
     }
